@@ -15,11 +15,7 @@ class Room:
         self.songs.append(song)
 
     def can_check_in(self):
-        if self.max_entry < len(self.guests):
-            return False
-        return True 
+        return self.max_entry >= len(self.guests)
     
     def can_guest_pay(self, guest):
-        if self.entry_fee > guest.cash:
-            return False
-        return True 
+        return self.entry_fee <= guest.cash
